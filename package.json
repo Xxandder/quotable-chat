@@ -1,0 +1,11 @@
+{
+  "name": "quotable-chat",
+  "version": "1.0.0",
+  "description": "chat application with auto response from BE using random quote from Quotable",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
