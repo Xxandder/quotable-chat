@@ -4,7 +4,9 @@
   "description": "chat application with auto response from BE using random quote from Quotable",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./dist/app.js",
+    "build": "tsc --build",
+    "dev": "nodemon ./src/app.ts"
   },
   "author": "",
   "license": "ISC",
