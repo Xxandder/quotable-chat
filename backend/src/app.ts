@@ -12,8 +12,10 @@ connectDB();
 
 app.use(requestLogger);
 
-app.use("/", () => {});
+app.use("/", () => {});  
+
+
 
 app.listen(PORT, () => {
-  loggerService.info(`Listening on port ${PORT}`)
+  loggerService.info(`Listening on port ${PORT}`);
 });
