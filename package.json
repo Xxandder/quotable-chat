@@ -1,0 +1,24 @@
+{
+  "devDependencies": {
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.8"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "lint:backend": "npm run lint --prefix backend",
+   
+    "prettify:backend": "npm run prettify --prefix backend",
+    
+    "lint": "npm run lint:backend",
+    "prettify": "npm run prettify:backend"
+  },
+  "name": "quotable-chat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+   
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
