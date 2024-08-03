@@ -7,9 +7,11 @@
   "scripts": {
     "prepare": "husky",
     "lint:backend": "npm run lint --prefix backend",
+    "lint:frontend": "npm run lint --prefix frontend",
     "prettify:backend": "npm run prettify --prefix backend",
-    "lint": "npm run lint:backend",
-    "prettify": "npm run prettify:backend"
+    "prettify:frontend": "npm run prettify --prefix frontend",
+    "lint": "npm run lint:backend && npm run lint:frontend",
+    "prettify": "npm run prettify:backend  && npm run prettify:frontend"
   },
   "name": "quotable-chat",
   "version": "1.0.0",
