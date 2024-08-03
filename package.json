@@ -13,7 +13,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md}": [
-     
+      "git add"
     ]
   },
   "name": "quotable-chat",
