@@ -21,6 +21,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",
     "padded-blocks": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "linebreak-style": "off",
   },
 };
