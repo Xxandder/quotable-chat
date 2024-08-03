@@ -1,13 +1,6 @@
 import { Schema, model } from "mongoose";
 import { ModelName } from "../enums/enums";
-
-interface IUser {
-  firstName: string;
-  lastName: string;
-  email?: string;
-  passwordHash?: string;
-  avatarUrl: string;
-}
+import { IUser } from "../types/types";
 
 const userSchema = new Schema<IUser>(
   {
