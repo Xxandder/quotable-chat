@@ -6,8 +6,7 @@ interface IUser {
   lastName: string;
   email?: string;
   passwordHash?: string;
-  avatarUrl?: string;
-  isBot: boolean;
+  avatarUrl: string;
 }
 
 const userSchema = new Schema<IUser>(
@@ -17,7 +16,6 @@ const userSchema = new Schema<IUser>(
     email: { type: String },
     passwordHash: { type: String },
     avatarUrl: { type: String },
-    isBot: { type: Boolean, required: true, default: false },
   },
   { timestamps: true },
 );
