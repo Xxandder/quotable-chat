@@ -1,5 +1,5 @@
 import { type Logger as LibraryLogger, pino } from "pino";
-import pretty from "pino-pretty";
+
 type LogFunction = (
   message: string,
   parameters?: Record<string, unknown>,
@@ -40,4 +40,6 @@ class LoggerService implements ILogger {
   }
 }
 
-export { LoggerService };
+const loggerService = new LoggerService();
+
+export { loggerService };
