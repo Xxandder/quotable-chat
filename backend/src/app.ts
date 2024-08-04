@@ -7,7 +7,7 @@ import { loggerService } from "./utils/logger";
 
 import { router } from "./routes/routes";
 
-import { initPassport } from "./config/passport";
+import { initPassport } from "./middleware/passport.middleware";
 
 const app = express();
 
