@@ -8,6 +8,7 @@ import { loggerService } from "./utils/logger";
 import { router } from "./routes/routes";
 
 import { initPassport } from "./middleware/passport.middleware";
+import errorHandler from "./middleware/error-handler.middleware";
 
 const app = express();
 
@@ -29,6 +30,8 @@ connectDB();
 app.use(requestLogger);
 
 app.use('/', router)
+
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   loggerService.info(`Listening on port ${PORT}`);
