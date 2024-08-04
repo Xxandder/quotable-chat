@@ -13,7 +13,6 @@ function initPassport(app: Express) {
         async (email: string, password: string, done) => {
           try {
             const user = await User.findOne({ email });
-      
             
             if (!user) {
               return done(null, false, { message: 'User not found' });

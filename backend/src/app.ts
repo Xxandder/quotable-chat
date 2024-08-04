@@ -28,7 +28,7 @@ connectDB();
 
 app.use(requestLogger);
 
-app.use(router)
+app.use('/', router)
 
 app.listen(PORT, () => {
   loggerService.info(`Listening on port ${PORT}`);
