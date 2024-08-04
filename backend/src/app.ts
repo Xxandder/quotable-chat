@@ -6,6 +6,9 @@ import { loggerService } from "./utils/logger";
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded());
+
 const PORT = 3000;
 
 connectDB();
