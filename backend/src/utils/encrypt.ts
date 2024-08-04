@@ -51,6 +51,6 @@ export class EncryptService implements IEncryptService {
   }
 }
 
-const encryptService = new EncryptService(bcrypt, process.env.SALT_ROUNDS);
+const encryptService = new EncryptService(bcrypt, parseInt(process.env.SALT_ROUNDS as string, 10));
 
 export default encryptService;
