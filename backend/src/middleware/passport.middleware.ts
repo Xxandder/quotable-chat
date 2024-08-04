@@ -4,6 +4,7 @@ import { Express } from "express";
 import { User } from '../models/user.model';
 import encryptService from '../utils/encrypt';
 import { UserEntity } from '../types/user-entity.type';
+import { userRepository } from '../repositories/user.repository';
 
 function initPassport(app: Express) {
     app.use(passport.initialize());
@@ -12,27 +13,16 @@ function initPassport(app: Express) {
     passport.use(new LocalStrategy({ usernameField: "email"},
         async (email: string, password: string, done) => {
           try {
-            const user = await User.findOne({ email });
+            const user = await userRepository.findByEmail(email)
             
             if (!user) {
               return done(null, false, { message: 'User not found' });
             }
       
-            const userEntity: UserEntity = {
-              id: user.id,
-              createdAt: user.createdAt,
-              updatedAt: user.updatedAt,
-              email: user.email,
-              firstName: user.firstName,
-              lastName: user.lastName,
-              passwordHash: user.passwordHash,
-              avatarUrl: user.avatarUrl,
-            };
-           
             if (await encryptService.comparePasswords(password, user.passwordHash as string)) {
               return done(null, false, { message: 'Incorrect password' });
             }
-            return done(null, userEntity);
+            return done(null, user);
           } catch (error) {
             return done(error);
           }

@@ -35,6 +35,27 @@ class UserRepository implements IRepository<UserEntity>{
         return Promise.resolve(null);
     }
 
+    async findByEmail(email: string): Promise<UserEntity | null> {
+        const user = await User.findOne({ email });
+            
+        if (!user) {
+          return null;
+        }
+  
+        const userEntity: UserEntity = {
+          id: user.id,
+          createdAt: user.createdAt,
+          updatedAt: user.updatedAt,
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          passwordHash: user.passwordHash,
+          avatarUrl: user.avatarUrl,
+        };
+
+        return userEntity;
+    }
+
     async update(): Promise<UserEntity | null> {
         return Promise.resolve(null)
     }
@@ -45,4 +66,6 @@ class UserRepository implements IRepository<UserEntity>{
 
 }
 
-export { UserRepository };
+const userRepository = new UserRepository();
+
+export { userRepository };
