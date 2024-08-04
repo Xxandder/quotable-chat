@@ -6,7 +6,7 @@ const userSchema = new Schema<UserEntity>(
   {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    email: { type: String },
+    email: { type: String, unique: true },
     passwordHash: { type: String },
     avatarUrl: { type: String },
   },
