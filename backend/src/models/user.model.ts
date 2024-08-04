@@ -1,8 +1,8 @@
 import { Schema, model } from "mongoose";
 import { ModelName } from "../enums/enums";
-import { IUser } from "../types/types";
+import { UserEntity } from "../types/types";
 
-const userSchema = new Schema<IUser>(
+const userSchema = new Schema<UserEntity>(
   {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
