@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import ApiError from "../exceptions/api-error.exception";
+import { ApiError} from "../exceptions/api-error.exception";
 import { loggerService } from "../utils/logger";
 import { ErrorMessage } from "../enums/enums";
 

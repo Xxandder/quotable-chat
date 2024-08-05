@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import ApiError from "./api-error.exception";
+import { ApiError } from "./api-error.exception";
 
 type Constructor = {
   message: string;
@@ -15,4 +15,4 @@ class AuthError extends ApiError {
   }
 }
 
-export default AuthError;
+export { AuthError };

@@ -1,3 +1,2 @@
-import ApiError from "./api-error.exception";
-
-export default ApiError;
+export { ApiError } from './api-error.exception';
+export { AuthError } from './auth-error.exception';
