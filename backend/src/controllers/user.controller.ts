@@ -3,6 +3,7 @@ import { userRepository } from "../repositories/user.repository";
 import encryptService from "../utils/encrypt";
 import { DEFAULT_AVATAR_URL } from "../constants/constants";
 import { AuthError } from "../exceptions/exceptions";
+import { ErrorMessage } from "../enums/enums";
 
 class UserController{
 
@@ -11,7 +12,7 @@ class UserController{
 
         const user = await userRepository.findByEmail(email);
         if(user){
-            next(new AuthError({message: "User with such email already exists", status: 409}))
+            next(new AuthError({message: ErrorMessage.USER_ALREADY_EXISTS, status: 409}))
         }
 
         try{

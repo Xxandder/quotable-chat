@@ -5,6 +5,7 @@ import { User } from '../models/user.model';
 import encryptService from '../utils/encrypt';
 import { UserEntity } from '../types/user-entity.type';
 import { userRepository } from '../repositories/user.repository';
+import { ErrorMessage } from '../enums/enums';
 
 function initPassport(app: Express) {
     app.use(passport.initialize());
@@ -16,11 +17,11 @@ function initPassport(app: Express) {
             const user = await userRepository.findByEmail(email)
             
             if (!user) {
-              return done(null, false, { message: 'User not found' });
+              return done(null, false, { message: ErrorMessage.USER_NOT_FOUND });
             }
       
             if (await encryptService.comparePasswords(password, user.passwordHash as string)) {
-              return done(null, false, { message: 'Incorrect password' });
+              return done(null, false, { message: ErrorMessage.INCORRECT_PASSWORD });
             }
             return done(null, user);
           } catch (error) {
