@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { userRepository } from "../repositories/user.repository";
 import encryptService from "../utils/encrypt";
 import { DEFAULT_AVATAR_URL } from "../constants/constants";
+import { AuthError } from "../exceptions/exceptions";
 
 class UserController{
 
@@ -10,7 +11,7 @@ class UserController{
 
         const user = await userRepository.findByEmail(email);
         if(user){
-            next(new Error("User with such email already exists"))
+            next(new AuthError({message: "User with such email already exists", status: 409}))
         }
 
         try{
@@ -26,10 +27,13 @@ class UserController{
                 createdAt: null,
                 updatedAt: null
             })
-
-            res.status(201).json(newUser)
+            req.login(newUser, (err) => {
+                if (err) return next(err);
+                return res.status(201).json(newUser)
+            });
+           
         }catch(e){
-            next(new Error("Something went wrong"))
+            next(e)
         }
     }
 }
